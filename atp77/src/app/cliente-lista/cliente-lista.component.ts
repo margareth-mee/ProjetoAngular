@@ -1,3 +1,4 @@
+import { ClienteService } from './../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-lista.component.css']
 })
 export class ClienteListaComponent implements OnInit {
+  lista:any[]
 
-  constructor() { }
+  constructor(private clienteService:ClienteService) {
+    this.lista = [];
+    this.listar();
+   }
 
   ngOnInit(): void {
+  }
+
+  private listar(){
+    this.lista = this.clienteService.listar();
   }
 
 }
