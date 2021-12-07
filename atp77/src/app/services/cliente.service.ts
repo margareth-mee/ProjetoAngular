@@ -1,21 +1,22 @@
+import { Cliente } from './../model/Cliente';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  private lista:Array<any>;
+  private lista:Array<Cliente>;
 
   constructor() {
     this.lista = [];
   }
 
-  salvar(cliente:any):void{
-    console.log("salvar do service:", cliente);
+  salvar(cliente:Cliente):void{
+   /*  console.log("salvar do service:", cliente); */
     this.lista.push(cliente);
   }
 
-  listar():any[]{
+  listar():Cliente[]{
     return this.lista;
   }
 }

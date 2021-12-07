@@ -5,21 +5,22 @@
     <h2>Cadastro de Clientes</h2>
 
     <form (ngSubmit)="salvar()">
-        <input type="number" class="form-control" name="id" id="id" placeholder="id" [(ngModel)]="id" />
+        <input type="number" class="form-control" name="id" id="id" placeholder="id" [(ngModel)]="cliente.id" />
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" [(ngModel)]="nome"/>
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" [(ngModel)]="cliente.nome"/>
         </div>
         <div class="mb-3">
             <label for="sobrenome" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="sobrenome" [(ngModel)]="sobrenome"/>
+            <input type="text" class="form-control" name="sobrenome" id="sobrenome" placeholder="sobrenome" [(ngModel)]="cliente.sobrenome"/>
         </div>
         <div class="mb-3">
           <label for="tipocliente" class="form-label">Tipo de cliente</label>
-          <input type="text" class="form-control" name="tipocliente" id="tipocliente" placeholder="tipocliente" [(ngModel)]="tipocliente"/>
+          <input type="text" class="form-control" name="tipocliente" id="tipocliente" placeholder="tipocliente" [(ngModel)]="cliente.tipocliente"/>
       </div>
         <input class="btn btn-primary" type="submit" value="Salvar">
     </form>
     <br />
+    <a href="/clientes" class="btn btn-primary">Voltar para Lista</a>
 </main>
 </html>
