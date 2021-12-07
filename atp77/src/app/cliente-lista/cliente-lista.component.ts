@@ -1,3 +1,4 @@
+import { Cliente } from './../model/Cliente';
 import { ClienteService } from './../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cliente-lista.component.css']
 })
 export class ClienteListaComponent implements OnInit {
-  lista:any[]
+  lista:Cliente[]
 
   constructor(private clienteService:ClienteService) {
     this.lista = [];
@@ -18,7 +19,7 @@ export class ClienteListaComponent implements OnInit {
   }
 
   private listar(){
-    this.lista = this.clienteService.listar();
+    this.clienteService.listar().subscribe((clientes)=>this.lista=clientes);
   }
 
 }

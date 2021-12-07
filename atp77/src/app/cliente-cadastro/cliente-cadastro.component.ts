@@ -18,14 +18,13 @@ export class ClienteCadastroComponent implements OnInit {
   }
 
   salvar(){
-    this.clienteService.salvar(this.cliente);
-    this.limpar();
+    this.clienteService.salvar(this.cliente).subscribe((msg)=>{
+      console.log(msg);
+      this.limpar();
+    });
   }
 
   private limpar(){
-    this.cliente.id = 0;
-    this.cliente.nome = "";
-    this.cliente.sobrenome = "";
-    this.cliente.tipocliente = "";
+    this.cliente = {} as Cliente;
   }
 }

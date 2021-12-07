@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Cliente } from './../model/Cliente';
 import { Injectable } from '@angular/core';
 
@@ -5,18 +7,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ClienteService {
-  private lista:Array<Cliente>;
+  private url:string;
 
-  constructor() {
-    this.lista = [];
+  constructor(private hhtpClient:HttpClient) {
+   this.url = 'http://localhost:8200/api/cliente';
   }
 
-  salvar(cliente:Cliente):void{
-   /*  console.log("salvar do service:", cliente); */
-    this.lista.push(cliente);
+  salvar(cliente:Cliente):Observable<string>{
+    return this.hhtpClient.post(this.url, cliente, {responseType:'text'});
   }
 
-  listar():Cliente[]{
-    return this.lista;
+  listar():Observable<Cliente[]>{
+    return this.hhtpClient.get<Cliente[]>(this.url);
   }
 }
