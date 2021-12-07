@@ -9,15 +9,17 @@ import { TipoclienteCadastroComponent } from './tipocliente-cadastro/tipocliente
 import { ClienteListaComponent } from './cliente-lista/cliente-lista.component';
 import { ClienteCadastroComponent } from './cliente-cadastro/cliente-cadastro.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     TipoclienteListaComponent,
     TipoclienteCadastroComponent,
     ClienteListaComponent,
-    ClienteCadastroComponent
-  ],
+    ClienteCadastroComponent,
+      HomeComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

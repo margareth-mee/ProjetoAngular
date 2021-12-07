@@ -1,21 +1,23 @@
+import { Observable } from 'rxjs';
+import { TipoCliente } from './../model/TipoCliente';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TipoclienteService {
-  private lista:Array<any>;
+  private url:string;
 
-  constructor() {
-    this.lista = [];
+  constructor(private httpClient:HttpClient) {
+    this.url = 'http://localhost:8200/api/tipocliente';
   }
 
-  salvar(tipocliente:any):void{
-    console.log("salvar do service:", tipocliente);
-    this.lista.push(tipocliente);
+  salvar(tipocliente:TipoCliente):Observable<string>{
+    return this.httpClient.post(this.url, tipocliente, {responseType:'text'});
   }
 
-  listar():any[]{
-    return this.lista;
+  listar():Observable<TipoCliente[]>{
+    return this.httpClient.get<TipoCliente[]>(this.url);
   }
 }

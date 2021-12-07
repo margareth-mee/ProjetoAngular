@@ -1,3 +1,4 @@
+import { TipoCliente } from './../model/TipoCliente';
 import { TipoclienteService } from './../services/tipocliente.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tipocliente-cadastro.component.css']
 })
 export class TipoclienteCadastroComponent implements OnInit {
-  id:number = 0;
-  nome:string = "";
-  descricao:string ="";
+  tipocliente = {} as TipoCliente;
 
   constructor(private tipoclienteService:TipoclienteService) {
    }
@@ -18,20 +17,14 @@ export class TipoclienteCadastroComponent implements OnInit {
   }
 
   salvar(){
-    let tipocliente = {
-      "id": this.id,
-      "nome": this.nome,
-      "descricao": this.descricao,
-    };
 
-    console.log(tipocliente)
-    this.tipoclienteService.salvar(tipocliente);
-    this.limpar();
+    this.tipoclienteService.salvar(this.tipocliente).subscribe((msg)=>{
+      console.log(msg);
+      this.limpar();
+    });
   }
 
   private limpar(){
-    this.id = 0;
-    this.nome = "";
-    this.descricao = "";
+    this.tipocliente = {} as TipoCliente;
   }
 }

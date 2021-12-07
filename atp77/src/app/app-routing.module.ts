@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { TipoclienteCadastroComponent } from './tipocliente-cadastro/tipocliente-cadastro.component';
 import { TipoclienteListaComponent } from './tipocliente-lista/tipocliente-lista.component';
 import { ClienteCadastroComponent } from './cliente-cadastro/cliente-cadastro.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'clientes/cadastrar', component: ClienteCadastroComponent},
   {path:'tiposclientes', component: TipoclienteListaComponent},
   {path:'tiposclientes/cadastrar', component: TipoclienteCadastroComponent},
+  {path:'home', component: HomeComponent}
 ];
 
 @NgModule({
